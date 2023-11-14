@@ -4248,7 +4248,11 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Pin.Acts.Pin,
 		C3.Plugins.Mouse.Cnds.OnObjectClicked,
 		C3.Plugins.System.Acts.ResetGlobals,
-		C3.Plugins.System.Acts.RestartLayout
+		C3.Plugins.System.Acts.RestartLayout,
+		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
+		C3.Plugins.System.Acts.AddVar,
+		C3.Plugins.Text.Acts.SetText,
+		C3.Plugins.Sprite.Acts.ToggleBoolInstanceVar
 	];
 };
 self.C3_JsPropNameTable = [
@@ -4258,6 +4262,7 @@ self.C3_JsPropNameTable = [
 	{Bullet: 0},
 	{Chao: 0},
 	{Mouse: 0},
+	{pontuou: 0},
 	{MontanhaBaixo: 0},
 	{MontanhaCima: 0},
 	{Fundo: 0},
@@ -4265,7 +4270,9 @@ self.C3_JsPropNameTable = [
 	{BotaoReiniciar: 0},
 	{Pin: 0},
 	{TextoReiniciar: 0},
-	{EstadoDoJogo: 0}
+	{Texto: 0},
+	{EstadoDoJogo: 0},
+	{Pontos: 0}
 ];
 }
 
@@ -4390,7 +4397,12 @@ self.C3_ExpressionFuncs = [
 		() => 320,
 		() => "jogando",
 		() => -404,
-		() => 1199
+		() => 1199,
+		() => 1,
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => v0.GetValue();
+		}
 ];
 
 
